@@ -1,13 +1,11 @@
 
 def first_left_occurence(l,n):
-
     low=0
     h=len(l)-1
     result=-1
 
     while(low<=h):
         mid=(low+h)//2
-
 
         if l[mid]==n:
             result=mid
@@ -31,7 +29,6 @@ def last_right_occurence(l,n):
 
     while(low<=h):
         mid=(low+h)//2
-
 
         if l[mid]==n:
             result=mid

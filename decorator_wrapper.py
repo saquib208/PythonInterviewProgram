@@ -22,7 +22,6 @@ def cube(n):
 def exp(a):
     def base(b):
         return b**a
-
     return base
 
 square=exp(2)
@@ -64,5 +63,39 @@ def fact(n):
         return n*fact(n-1)
 
 
-print(fact(500))
+#print(fact(5))
 
+def dollar(f):
+    def wrapper(*args):
+        return '$'+str(f(*args))
+    return wrapper
+
+def ruppees(f):
+    def wrapper(*args):
+        return 'Rs'+str(f(*args))
+    return wrapper
+
+
+
+@dollar
+def price(amount,tax):
+    return amount+amount*tax
+
+print(price(30,5))
+
+
+def target(list,x):
+    seen = set()
+    for i in list:
+        diff = x-i
+        if diff in seen:
+            print(f'diff-->{diff}')
+            return True
+        else:
+            print(f'value-->{i}')
+            seen.add(i)
+    return False
+
+l=[8,7,4,5,2,1]
+x=11
+print(target(l,x))
